@@ -26,6 +26,8 @@ main =
             ("RMMMMMMMMMM", "0:0:E"),
             ("LMMMMMMMMMM", "0:0:W"),
             ("LLMMMMMMMMMM", "0:0:S"),
+            ("LM", "9:0:W"),
+            ("LLM", "0:9:S"),
             ("MMRMMLM", "2:3:N"),
             ("RMMLM", "2:1:N")
           ]

@@ -23,21 +23,25 @@ rotateRight (Rover p West) = Rover p North
 rotateRight (Rover p South) = Rover p West
 rotateRight (Rover p East) = Rover p South
 
+increase :: Integer -> Integer
+increase 9 = 0
+increase n = n + 1
+
+decrease :: Integer -> Integer
+decrease 0 = 9
+decrease n = n - 1
+
 moveNorth :: Position -> Position
-moveNorth (Position x 9) = Position x 0
-moveNorth (Position x y) = Position x (y + 1)
+moveNorth (Position x y) = Position x (increase y)
 
 moveSouth :: Position -> Position
-moveSouth (Position x 0) = Position x 9
-moveSouth (Position x y) = Position x (y - 1)
+moveSouth (Position x y) = Position x (decrease y)
 
 moveEast :: Position -> Position
-moveEast (Position 9 y) = Position 0 y
-moveEast (Position x y) = Position (x + 1) y
+moveEast (Position x y) = Position (increase x) y
 
 moveWest :: Position -> Position
-moveWest (Position 0 y) = Position 9 y
-moveWest (Position x y) = Position (x - 1) y
+moveWest (Position x y) = Position (decrease x) y
 
 move :: Rover -> Rover
 move (Rover p North) = Rover (moveNorth p) North
