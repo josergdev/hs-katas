@@ -76,4 +76,4 @@ outputFromRover :: Rover -> String
 outputFromRover (Rover (Position x y) d) = show x <> ":" <> show y <> ":" <> outputFromDirection d
 
 execute :: String -> String
-execute a = outputFromRover $ executeCommands initial (commandsFromInput a)
+execute s = outputFromRover $ executeCommands initial $ commandsFromInput s
