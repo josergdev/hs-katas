@@ -8,12 +8,6 @@ data Rover = Rover {position :: Position, direction :: Direction} deriving (Show
 
 data Command = LeftCmd | RightCmd | MoveCmd deriving (Show)
 
-fromCharCommand :: Char -> Command
-fromCharCommand 'L' = LeftCmd
-fromCharCommand 'R' = RightCmd
-fromCharCommand 'M' = MoveCmd
-fromCharCommand _ = undefined
-
 initial :: Rover
 initial = Rover (Position 0 0) North
 
@@ -61,6 +55,12 @@ executeCommands = foldl executeCommand
 
 commandsFromInput :: [Char] -> [Command]
 commandsFromInput = map fromCharCommand
+
+fromCharCommand :: Char -> Command
+fromCharCommand 'L' = LeftCmd
+fromCharCommand 'R' = RightCmd
+fromCharCommand 'M' = MoveCmd
+fromCharCommand _ = undefined
 
 outputFromDirection :: Direction -> String
 outputFromDirection North = "N"
